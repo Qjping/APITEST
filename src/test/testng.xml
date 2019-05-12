@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<suite name="suite">
+    <test name="test">
+        <parameter  name="valueName" value="SELECT * FROM testcase WHERE name LIKE '%1004%' "/>
+        <classes>
+            <class name="TestCase"/>
+        </classes>
+    </test>
+    <listeners>
+        <listener class-name="config.ExtentTestNGIReporterListener"></listener>
+    </listeners>
+</suite>
