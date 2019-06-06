@@ -29,8 +29,10 @@ public class TestCase {
     @BeforeTest
     public void globalVariable(){
         TestConfig.setMap(TestConfig.map);
+        System.out.println(TestConfig.map.toString());
     }
 
+    //只能返回一个Object二维数组或一个Iterator<Object[]>来提供复杂的参数对象
     @DataProvider(name = "testData")
     private Iterator<Object[]> getData(){
         return new DataMysql(TestConfig.IP, TestConfig.PORT, TestConfig.DATABASE,TestConfig.USERNAME, TestConfig.PASSWORD, sql);
@@ -41,9 +43,12 @@ public class TestCase {
         //获取测试数据值
         String url = replaceVariableParemeters(dataMap.get("url"));
         String method = dataMap.get("method");
+
         JSONObject headerObject = new JSONObject(replaceVariableParemeters(dataMap.get("header")));
+        System.out.println(dataMap.get("data").replaceAll(" ", ""));
         String data = replaceVariableParemeters(dataMap.get("data"));
         String expected = dataMap.get("expected");
+
 
         /**
          * 发起请求
@@ -64,12 +69,18 @@ public class TestCase {
             builder.header(key,headerObject.getString(key));
         }
         //设置request
+        System.out.println(headerObject.has("Content-Type"));
+        if(headerObject.has("Content-Type")){
         if (headerObject.getString("Content-Type").equals("application/x-www-form-urlencoded")){
             if (method.equals("POST")){
+
                 FormBody.Builder formBuilder = new FormBody.Builder();
                 if (!StringUtils.isNullOrEmpty(data)){
                     JSONObject bodyObject = new JSONObject(data);
                     Iterator<String> bodyIterator = bodyObject.keys();
+//                    for(String key:bodyObject.keySet()){
+//                        formBuilder.add(key,bodyObject.getString(key));
+//                    }
                     while (bodyIterator.hasNext()){
                         String key = bodyIterator.next();
                         formBuilder.add(key,bodyObject.getString(key));
@@ -92,14 +103,21 @@ public class TestCase {
                 request = builder.url(url).delete(body).build();
             }
         }
+        }else{
+            request=builder.url(url).get().build();
+        }
         //获取response
         try {
             response = okHttpClient.newCall(request).execute();
             result = response.body().string();
+
         } catch (IOException e) {
             e.printStackTrace();
         }
+//        String result2 =response.headers().toString();
         Reporter.log("返回数据:"+result);
+
+
 
         /**
          * 保存返回结果中的变量
@@ -126,6 +144,7 @@ public class TestCase {
          */
         if (StringUtils.isNullOrEmpty(expected)){
             //判断code==200
+            System.out.println(response.code());
             Assert.assertTrue(response.code() ==200);
         }else if (!StringUtils.isNullOrEmpty(expected)){
             JSONObject jsonObject = new JSONObject(expected);
