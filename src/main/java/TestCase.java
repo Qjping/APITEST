@@ -84,33 +84,38 @@ public class TestCase extends DataMysql2 {
         }
 
         //设置request
-        if(headerObject.has("Content-Type")){
-        if (headerObject.getString("Content-Type").equals("application/x-www-form-urlencoded")){
-            if (method.equals("POST")){
+
+       if (headerObject.has("Content-Type")&&headerObject.getString("Content-Type").equals("application/x-www-form-urlencoded")){ if (method.equals("POST")){
+
+
                 FormBody.Builder formBuilder = new FormBody.Builder();
+
                 if (!StringUtils.isNullOrEmpty(data)){
                     JSONObject body = new JSONObject(data);
                     body.keySet().forEach(e->formBuilder.add(e,body.getString(e)));
-
                 }
-
                 FormBody body = formBuilder.build();
                 request = builder.url(url).post(body).build();
             }else if (method.equals("GET")){
                 request = builder.url(url).build();
             }
-        }else if (headerObject.getString("Content-Type").contains("application/json")){
+        }else if (headerObject.has("Content-Type")&&headerObject.getString("Content-Type").contains("application/json")){
             RequestBody body = RequestBody.create(okhttp3.MediaType.parse("application/json;charset=UTF-8"), data);
-            if (method.equals("POST")){
-                request = builder.url(url).post(body).build();
-            }else if (method.equals("GET")){
-                request = builder.url(url).build();
-            }else if (method.equals("PUT")){
-                request = builder.url(url).put(body).build();
-            }else if (method.equals("DELETE")){
-                request = builder.url(url).delete(body).build();
+            switch (method) {
+                case "POST":
+                    request = builder.url(url).post(body).build();
+                    break;
+                case "PUT":
+                    request = builder.url(url).put(body).build();
+                    break;
+                case "DELETE":
+                    request = builder.url(url).delete(body).build();
+                    break;
+                default:
+                    request = builder.url(url).build();
+                    break;
             }
-        }
+
         }else{
             request=builder.url(url).get().build();
         }
@@ -134,7 +139,6 @@ public class TestCase extends DataMysql2 {
             //获得存储变量名及变量的path
             JSONObject dependFields = new JSONObject(dataMap.get("has_global_variable"));
             Iterator<String> sIterator = dependFields.keys();
-
 
             while(sIterator.hasNext()) {
                 // 获得变量名
@@ -207,5 +211,5 @@ public class TestCase extends DataMysql2 {
     }
 
 
-    private static String request
+
 }
