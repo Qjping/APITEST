@@ -1,7 +1,10 @@
 
+import com.google.gson.JsonObject;
 import com.jayway.jsonpath.JsonPath;
 import com.mysql.cj.core.util.StringUtils;
+
 import config.DataMysql;
+import config.DataMysql2;
 import config.TestConfig;
 import okhttp3.*;
 import org.json.JSONObject;
@@ -9,13 +12,14 @@ import org.testng.Assert;
 import org.testng.Reporter;
 import org.testng.annotations.*;
 import java.io.IOException;
+import java.lang.invoke.LambdaMetafactory;
 import java.util.Iterator;
 import java.util.Map;
 import java.util.concurrent.TimeUnit;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-public class TestCase {
+public class TestCase extends DataMysql2 {
 
     String sql=null;   //xml中读出的sql语句
 
@@ -23,7 +27,6 @@ public class TestCase {
     @BeforeClass()
     public void beforeClass(String sql) {
         this.sql = sql;
-        System.out.println(sql);
     }
 
     @BeforeTest
@@ -32,23 +35,38 @@ public class TestCase {
         System.out.println(TestConfig.map.toString());
     }
 
-    //只能返回一个Object二维数组或一个Iterator<Object[]>来提供复杂的参数对象
+   // 只能返回一个Object二维数组或一个Iterator<Object[]>来提供复杂的参数对象
     @DataProvider(name = "testData")
     private Iterator<Object[]> getData(){
-        return new DataMysql(TestConfig.IP, TestConfig.PORT, TestConfig.DATABASE,TestConfig.USERNAME, TestConfig.PASSWORD, sql);
+        return new DataMysql(TestConfig.IP,
+                TestConfig.PORT,
+                TestConfig.DATABASE,
+                TestConfig.USERNAME,
+                TestConfig.PASSWORD,
+                sql);
     }
+
 
     @Test(dataProvider = "testData")
     public void test(Map<String, String> dataMap) {
         //获取测试数据值
-        String url = replaceVariableParemeters(dataMap.get("url"));
+        String url = replaceVariableParemeters(
+                dataMap.get("url"));
         String method = dataMap.get("method");
-
         JSONObject headerObject = new JSONObject(replaceVariableParemeters(dataMap.get("header")));
-        System.out.println(dataMap.get("data").replaceAll(" ", ""));
+        dataMap.get("data").replaceAll(" ", "");
         String data = replaceVariableParemeters(dataMap.get("data"));
         String expected = dataMap.get("expected");
 
+        OkHttpClient okHttpClient = new OkHttpClient.Builder()
+                .connectTimeout(TestConfig.connectTimeout, TimeUnit.SECONDS)
+                .writeTimeout(TestConfig.writeTimeout,TimeUnit.SECONDS)
+                .readTimeout(TestConfig.readTimeout, TimeUnit.SECONDS).build();
+
+        Request.Builder builder = new Request.Builder();
+        Request request = null;
+        String result = null;
+        Response response = null;
 
         /**
          * 发起请求
@@ -56,36 +74,26 @@ public class TestCase {
         System.out.println("========================" + dataMap.get("description")+"========================");
         Reporter.log("请求url："+url);
         Reporter.log("请求参数："+data);
-        OkHttpClient okHttpClient = new OkHttpClient.Builder().connectTimeout(TestConfig.connectTimeout, TimeUnit.SECONDS)
-                .writeTimeout(TestConfig.writeTimeout,TimeUnit.SECONDS).readTimeout(TestConfig.readTimeout, TimeUnit.SECONDS).build();
-        Request request = null;
-        String result = null;
-        Response response = null;
-        Request.Builder builder = new Request.Builder();
+
+
         //设置header
         Iterator<String> headerIterator = headerObject.keys();
         while (headerIterator.hasNext()){
             String key = headerIterator.next();
             builder.header(key,headerObject.getString(key));
         }
+
         //设置request
-        System.out.println(headerObject.has("Content-Type"));
         if(headerObject.has("Content-Type")){
         if (headerObject.getString("Content-Type").equals("application/x-www-form-urlencoded")){
             if (method.equals("POST")){
-
                 FormBody.Builder formBuilder = new FormBody.Builder();
                 if (!StringUtils.isNullOrEmpty(data)){
-                    JSONObject bodyObject = new JSONObject(data);
-                    Iterator<String> bodyIterator = bodyObject.keys();
-//                    for(String key:bodyObject.keySet()){
-//                        formBuilder.add(key,bodyObject.getString(key));
-//                    }
-                    while (bodyIterator.hasNext()){
-                        String key = bodyIterator.next();
-                        formBuilder.add(key,bodyObject.getString(key));
-                    }
+                    JSONObject body = new JSONObject(data);
+                    body.keySet().forEach(e->formBuilder.add(e,body.getString(e)));
+
                 }
+
                 FormBody body = formBuilder.build();
                 request = builder.url(url).post(body).build();
             }else if (method.equals("GET")){
@@ -114,7 +122,7 @@ public class TestCase {
         } catch (IOException e) {
             e.printStackTrace();
         }
-//        String result2 =response.headers().toString();
+        Reporter.log("请求url:"+url);
         Reporter.log("返回数据:"+result);
 
 
@@ -126,11 +134,13 @@ public class TestCase {
             //获得存储变量名及变量的path
             JSONObject dependFields = new JSONObject(dataMap.get("has_global_variable"));
             Iterator<String> sIterator = dependFields.keys();
+
+
             while(sIterator.hasNext()) {
                 // 获得变量名
                 String variable = sIterator.next();
                 // 获得变量path
-                String variablePath = dependFields.getString(variable);
+                String  variablePath= dependFields.getString(variable);
                 // 从返回结果中获取变量值
                 String variableValue = JsonPath.read(result,variablePath).toString();
                 // 将获取的变量放到用于储存全局变量的map中
@@ -144,20 +154,22 @@ public class TestCase {
          */
         if (StringUtils.isNullOrEmpty(expected)){
             //判断code==200
-            System.out.println(response.code());
-            Assert.assertTrue(response.code() ==200);
-        }else if (!StringUtils.isNullOrEmpty(expected)){
+            Assert.assertTrue(response.code() >=400);
+
+        }else {
             JSONObject jsonObject = new JSONObject(expected);
+
             Iterator<String> expectedIterator = jsonObject.keys();
             while(expectedIterator.hasNext()) {
                 // 获得校验参数的路径
                 String path = expectedIterator.next();
                 // 获得预期值
                 String expectedFiellds = jsonObject.getString(path);
-                if (StringUtils.isNullOrEmpty(expectedFiellds)){
+                if (StringUtils.isNullOrEmpty(expectedFiellds))
+                {
                     //判断对应路径值存在
                     Assert.assertNotNull(JsonPath.read(result,path));
-                }else if (!StringUtils.isNullOrEmpty(expectedFiellds)) {
+                }{
                     String str ="(?<=\\$\\{)(.+?)(?=})";
                     Pattern p = Pattern.compile(str);
                     Matcher m = p.matcher(expectedFiellds);
@@ -165,7 +177,7 @@ public class TestCase {
                         //去全局变量map里查
                         expectedFiellds = expectedFiellds.replace("${","").replace("}","");
                         Assert.assertEquals(JsonPath.read(result,path).toString(),TestConfig.map.get(expectedFiellds));
-                    }else if(!m.find()){
+                    }else {
                         //对比预期值
                         Assert.assertEquals(JsonPath.read(result,path),jsonObject.getString(path));
                     }
@@ -193,4 +205,7 @@ public class TestCase {
             return "";
         }
     }
+
+
+    private static String request
 }

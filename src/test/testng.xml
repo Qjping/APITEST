@@ -1,12 +1,14 @@
 <?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
 <suite name="suite">
-    <test name="test">
-        <parameter  name="valueName" value="SELECT * FROM testcase WHERE name LIKE '%1004%' "/>
+    <test name="TestCase">
+        <parameter  name="valueName" value="SELECT * FROM testcase  "/>
         <classes>
             <class name="TestCase"/>
         </classes>
     </test>
     <listeners>
-        <listener class-name="config.ExtentTestNGIReporterListener"></listener>
+        <listener class-name="util.ExtentTestNGIReporterListener"></listener>
     </listeners>
+
 </suite>
