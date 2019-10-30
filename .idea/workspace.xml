@@ -1,10 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="BookmarkManager">
-    <bookmark url="file://$PROJECT_DIR$/src/main/java/TestCase.java" line="130" />
+    <bookmark url="file://$PROJECT_DIR$/src/main/java/TestCase.java" line="109" />
   </component>
   <component name="ChangeListManager">
     <list default="true" id="5942b493-8ffc-409f-964a-6931eabdaf26" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/TestCase.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/TestCase.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
@@ -26,12 +27,14 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/TestCase.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-333">
-              <caret line="69" column="53" selection-start-line="69" selection-start-column="53" selection-end-line="69" selection-end-column="53" />
+            <state relative-caret-position="230">
+              <caret line="191" column="72" selection-start-line="191" selection-start-column="72" selection-end-line="191" selection-end-column="72" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="e#723#724#0" expanded="true" />
                 <element signature="e#753#754#0" expanded="true" />
+                <element signature="method#replaceVariableParemeters#0;class#TestCase#0" />
+                <element signature="method#request#0;class#TestCase#0" />
               </folding>
             </state>
           </provider>
@@ -189,8 +192,8 @@
     </option>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="145" />
-    <option name="y" value="-8" />
+    <option name="x" value="260" />
+    <option name="y" value="-9" />
     <option name="width" value="1416" />
     <option name="height" value="733" />
   </component>
@@ -405,17 +408,11 @@
       <workItem from="1569290489373" duration="911000" />
       <workItem from="1569296142817" duration="611000" />
       <workItem from="1572335139101" duration="6861000" />
-      <workItem from="1572342116250" duration="6005000" />
+      <workItem from="1572342116250" duration="7448000" />
     </task>
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="E__apitest_APITEST_src_test_testng_xml - 2019.10.29 at 17h 07m 57s.xml">
-      <configuration name="E:/apitest/APITEST/src/test/testng.xml" configurationId="TestNG" />
-    </history-entry>
-    <history-entry file="E__apitest_APITEST_src_test_testng_xml - 2019.10.29 at 17h 12m 27s.xml">
-      <configuration name="E:/apitest/APITEST/src/test/testng.xml" configurationId="TestNG" />
-    </history-entry>
     <history-entry file="E__apitest_APITEST_src_test_testng_xml - 2019.10.29 at 17h 12m 31s.xml">
       <configuration name="E:/apitest/APITEST/src/test/testng.xml" configurationId="TestNG" />
     </history-entry>
@@ -440,9 +437,15 @@
     <history-entry file="E__apitest_APITEST_src_test_testng_xml - 2019.10.29 at 17h 24m 31s.xml">
       <configuration name="E:/apitest/APITEST/src/test/testng.xml" configurationId="TestNG" />
     </history-entry>
+    <history-entry file="E__apitest_APITEST_src_test_testng_xml - 2019.10.30 at 14h 30m 44s.xml">
+      <configuration name="E:/apitest/APITEST/src/test/testng.xml" configurationId="TestNG" />
+    </history-entry>
+    <history-entry file="E__apitest_APITEST_src_test_testng_xml - 2019.10.30 at 14h 32m 29s.xml">
+      <configuration name="E:/apitest/APITEST/src/test/testng.xml" configurationId="TestNG" />
+    </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="107594000" />
+    <option name="totallyTimeSpent" value="109037000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -455,8 +458,9 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
+    <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.15511727" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.15511727" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Image Layers" order="2" />
       <window_info id="Designer" order="3" />
@@ -472,7 +476,7 @@
       <window_info anchor="bottom" id="TODO" order="6" weight="0.329718" />
       <window_info anchor="bottom" id="Version Control" order="7" weight="0.7364425" />
       <window_info anchor="bottom" id="Database Changes" order="8" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Terminal" order="9" visible="true" weight="0.03253796" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="9" visible="true" weight="0.3177874" />
       <window_info anchor="bottom" id="Event Log" order="10" side_tool="true" />
       <window_info anchor="bottom" id="Messages" order="11" weight="0.45553145" />
       <window_info anchor="bottom" id="Docker" order="12" show_stripe_button="false" />
@@ -819,12 +823,14 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/TestCase.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-333">
-          <caret line="69" column="53" selection-start-line="69" selection-start-column="53" selection-end-line="69" selection-end-column="53" />
+        <state relative-caret-position="230">
+          <caret line="191" column="72" selection-start-line="191" selection-start-column="72" selection-end-line="191" selection-end-column="72" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="e#723#724#0" expanded="true" />
             <element signature="e#753#754#0" expanded="true" />
+            <element signature="method#replaceVariableParemeters#0;class#TestCase#0" />
+            <element signature="method#request#0;class#TestCase#0" />
           </folding>
         </state>
       </provider>

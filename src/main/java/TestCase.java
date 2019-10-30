@@ -70,7 +70,6 @@ public class TestCase extends DataMysql2 {
         Request request =request(url,header,method,data);
         String result = null;
         Response response = null;
-
         /**
          * 发起请求
          */
@@ -78,13 +77,10 @@ public class TestCase extends DataMysql2 {
         Reporter.log("请求url："+url);
         Reporter.log("请求参数："+data);
 
-
-
         //获取response
         try {
             response = okHttpClient.newCall(request).execute();
             result = response.body().string();
-
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -92,27 +88,10 @@ public class TestCase extends DataMysql2 {
         Reporter.log("返回数据:"+result);
 
 
-
         /**
          * 保存返回结果中的变量
          */
-        if (!StringUtils.isNullOrEmpty(dataMap.get("has_global_variable"))) {
-            //获得存储变量名及变量的path
-            JSONObject dependFields = new JSONObject(dataMap.get("has_global_variable"));
-            Iterator<String> sIterator = dependFields.keys();
 
-            while(sIterator.hasNext()) {
-                // 获得变量名
-                String variable = sIterator.next();
-                // 获得变量path
-                String  variablePath= dependFields.getString(variable);
-                // 从返回结果中获取变量值
-                String variableValue = JsonPath.read(result,variablePath).toString();
-                // 将获取的变量放到用于储存全局变量的map中
-                TestConfig.map.put(variable,variableValue);
-                System.out.println("全局变量 :"+TestConfig.map.toString());
-            }
-        }
 
         /**
          * 校验
@@ -207,6 +186,27 @@ public class TestCase extends DataMysql2 {
         }
 
         return  request;
+    }
+
+
+    private static void extrator(Map<String, String> data,String result ){
+        if (!StringUtils.isNullOrEmpty(data.get("has_global_variable"))) {
+            //获得存储变量名及变量的path
+            JSONObject dependFields = new JSONObject(data.get("has_global_variable"));
+            Iterator<String> sIterator = dependFields.keys();
+            while(sIterator.hasNext()) {
+                // 获得变量名
+                String variable = sIterator.next();
+                // 获得变量path
+                String  variablePath= dependFields.getString(variable);
+                // 从返回结果中获取变量值
+                String variableValue = JsonPath.read(result,variablePath).toString();
+                // 将获取的变量放到用于储存全局变量的map中
+                TestConfig.map.put(variable,variableValue);
+                System.out.println("全局变量 :"+TestConfig.map.toString());
+            }
+        }
+
     }
 
 
