@@ -63,6 +63,8 @@ public class DataMysql implements Iterator<Object[]>{
 
                 //循环每列，如果不要id，则将i设为2
                 for (int i = 1; i <= rd.getColumnCount(); i++) {
+
+                    String cellData=result.getString(i);
                     String key = result.getMetaData().getColumnName(i);
                     String value = result.getString(i);
                     System.out.println("key"+key+"value"+value);

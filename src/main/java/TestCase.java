@@ -9,6 +9,7 @@ import config.DataMysql2;
 import config.TestConfig;
 import okhttp3.*;
 import org.apache.http.Header;
+import org.apache.http.entity.StringEntity;
 import org.json.JSONObject;
 import org.testng.Assert;
 import org.testng.Reporter;
@@ -56,8 +57,10 @@ public class TestCase extends DataMysql2 {
         //获取测试数据值
         String url = replaceVariableParemeters(dataMap.get("url"));
         String method = dataMap.get("method");
+        replaceVariableParemeters(dataMap.get("header"));
         JSONObject header= new JSONObject(replaceVariableParemeters(dataMap.get("header")));
-        dataMap.get("data").replaceAll(" ", "");
+
+
         String data = replaceVariableParemeters(dataMap.get("data"));
         String expected = dataMap.get("expected");
 
@@ -91,7 +94,7 @@ public class TestCase extends DataMysql2 {
         /**
          * 保存返回结果中的变量
          */
-
+        extrator(dataMap,result);
 
         /**
          * 校验
@@ -139,7 +142,12 @@ public class TestCase extends DataMysql2 {
             while (m.find()){
                 //去全局变量map里查
                 String newStr = m.group().replace("${","").replace("}","");
-                string = string.replace(m.group(),TestConfig.map.get(newStr));
+                if (!TestConfig.map.containsKey(newStr)) {
+                    Reporter.log("全局变量不存在" + newStr);
+                    return string;
+                }else {
+                    string = string.replace(m.group(),TestConfig.map.get(newStr));
+                }
             }
             return string;
         }else {
@@ -181,7 +189,7 @@ public class TestCase extends DataMysql2 {
                 case "POST": request = builder.url(url).post(body).build();break;
                 case "PUT": request = builder.url(url).put(body).build();break;
                 case "DELETE": request = builder.url(url).delete(body).build();break;
-                default: request = builder.url(url).build();break;
+                default: request = builder.url(url).build();
             }
         }
 
