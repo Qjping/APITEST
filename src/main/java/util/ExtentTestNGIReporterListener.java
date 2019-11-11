@@ -1,11 +1,14 @@
 package util;
 
+
 import com.aventstack.extentreports.ExtentReports;
 import com.aventstack.extentreports.ExtentTest;
+
 import com.aventstack.extentreports.ResourceCDN;
 import com.aventstack.extentreports.Status;
 import com.aventstack.extentreports.model.TestAttribute;
 import com.aventstack.extentreports.reporter.ExtentHtmlReporter;
+
 import com.aventstack.extentreports.reporter.configuration.ChartLocation;
 import com.aventstack.extentreports.reporter.configuration.Theme;
 import org.testng.*;
@@ -13,8 +16,6 @@ import org.testng.xml.XmlSuite;
 
 import java.io.File;
 import java.util.*;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
 
 public class ExtentTestNGIReporterListener implements IReporter {
     //生成的路径以及文件名
@@ -95,6 +96,9 @@ public class ExtentTestNGIReporterListener implements IReporter {
             }
 
         }
+//        for (String s : Reporter.getOutput()) {
+//            extent.setTestRunnerOutput(s);
+//        }
 
         extent.flush();
     }
@@ -115,10 +119,13 @@ public class ExtentTestNGIReporterListener implements IReporter {
         htmlReporter.config().setChartVisibilityOnOpen(true);
         htmlReporter.config().setTestViewChartLocation(ChartLocation.TOP);
         htmlReporter.config().setTheme(Theme.STANDARD);
+        htmlReporter.config().setEncoding("gbk");
         htmlReporter.config().setCSS(".node.level-1  ul{ display:none;} .node.level-1.active ul{display:block;}");
         extent = new ExtentReports();
         extent.attachReporter(htmlReporter);
         extent.setReportUsesManualConfiguration(true);
+
+
     }
 
     private void buildTestNodes(ExtentTest extenttest, IResultMap tests, Status status) {
@@ -145,25 +152,17 @@ public class ExtentTestNGIReporterListener implements IReporter {
             treeSet.addAll(tests.getAllResults());
             for (ITestResult result : treeSet) {
                 Object[] parameters = result.getParameters();
-
-                /**
-                 * 因为所有case执行的是同一个@Test，无法在注解中通过description写明case的名称
-                 * 解决方案：在mysql存中了一个字段叫description，下面在请求的parameters中抽离出了description值作为测试报告的case名称
-                 */
-                String str ="(?<=description\\=)(.+?)(?=,)";
-                Pattern p = Pattern.compile(str);
-                Matcher m = p.matcher(parameters[0].toString());
-                String name= "";
-                while (m.find()){
-                    name = m.group(0);
+                String name="";
+                //如果有参数，则使用参数的toString组合代替报告中的name
+                for(Object param:parameters){
+                    name+=param.toString();
                 }
-
                 if(name.length()>0){
                     if(name.length()>50){
                         name= name.substring(0,49)+"...";
                     }
                 }else{
-                    name = m.group(0);
+                    name = result.getMethod().getMethodName();
                 }
                 if(extenttest==null){
                     test = extent.createTest(name);

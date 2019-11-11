@@ -1,21 +1,19 @@
 
-import com.google.gson.JsonObject;
+
 import com.jayway.jsonpath.JsonPath;
 import com.mysql.cj.core.util.StringUtils;
 
-import com.sun.org.apache.xpath.internal.functions.FuncFalse;
 import config.DataMysql;
 import config.DataMysql2;
 import config.TestConfig;
 import okhttp3.*;
-import org.apache.http.Header;
-import org.apache.http.entity.StringEntity;
+
 import org.json.JSONObject;
 import org.testng.Assert;
 import org.testng.Reporter;
 import org.testng.annotations.*;
 import java.io.IOException;
-import java.lang.invoke.LambdaMetafactory;
+
 import java.util.Iterator;
 import java.util.Map;
 import java.util.concurrent.TimeUnit;
@@ -36,7 +34,7 @@ public class TestCase extends DataMysql2 {
 
     @BeforeTest
     public void globalVariable(){
-        TestConfig.setMap(TestConfig.map);
+
         System.out.println(TestConfig.map.toString());
     }
 

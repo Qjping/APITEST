@@ -6,8 +6,8 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <module name="new_model" />
         <module name="ApiTest" />
+        <module name="new_model" />
       </profile>
     </annotationProcessing>
   </component>

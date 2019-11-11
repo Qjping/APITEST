@@ -26,12 +26,14 @@ public class TestConfig {
      * 全局变量
      */
     public static Map<String,String> map = new HashMap<String,String>();
-    public static void setMap(Map map) {
+    static{
         map.put("KoreaDirectId","");        //韩国直邮商品id
         map.put("KoreaDirectSimpleId","");       //韩国直邮商品simple_id
         map.put("product_id","714603");
         map.put("Content-Type","application/json");
         map.put("path","app1");
-
-    }
+   }
+//    public static void setMap(Map map) {
+//
+//    }
 }

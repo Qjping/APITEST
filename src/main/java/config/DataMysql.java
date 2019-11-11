@@ -2,9 +2,7 @@ package config;
 
 import java.sql.*;
 import java.util.*;
-import java.util.function.Supplier;
-import java.util.stream.IntStream;
-import java.util.stream.Stream;
+
 
 /*
  * JDBC操作数据库的步骤:

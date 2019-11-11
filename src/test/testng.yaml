@@ -1,0 +1,15 @@
+﻿name: SingleSuite
+
+
+listeners:
+  listener:
+    class-name: config.ExtentTestNGIReporterListener
+
+
+
+tests:
+- name: Regression2
+  parameters: { count: 10 }
+  excludedGroups: [ broken ]
+  classes:
+  - test.listeners.ResultEndMillisTest
