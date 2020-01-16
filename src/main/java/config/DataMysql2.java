@@ -24,12 +24,12 @@ public class DataMysql2{
     public static String password = "123456";
     public static String url = String.format("jdbc:mysql://%s:%s/%s?serverTimezone=UTC", ip, port, baseName);
     public String sql=null;
+
     @BeforeClass
     @Parameters({"valueName"})
     public  void setsql(String sql){
         this.sql=sql;
     }
-
 
 
     /**
@@ -84,13 +84,12 @@ public class DataMysql2{
         return paramList;
     }
 
-    @DataProvider
+    @DataProvider(name="testData")
     public Object[][] dbDataMethod() {
 
         System.out.println(sql);
         List<Map<String, String>> result = getDataList(url, sql);
         Object[][] files = new Object[result.size()][];
-
 
         for (int i = 0; i < result.size(); i++) {
             files[i] = new Object[]{result.get(i)};

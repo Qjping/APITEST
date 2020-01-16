@@ -1,0 +1,20 @@
+name: Testng
+#threadCount: 4
+#parameters: { n: 42 }
+parameters : { valueName : SELECT * FROM testcase }
+
+
+tests:
+  - name: TestCase
+
+
+
+#    excludedGroups: [ broken ]
+    classes:
+      - TestCase
+
+#      -
+listeners:
+  listener:
+    classname: util.ExtentTestNGIReporterListener
+

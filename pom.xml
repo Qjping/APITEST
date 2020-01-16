@@ -5,9 +5,9 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>com.course</groupId>
-    <artifactId>new_model</artifactId>
+    <artifactId>Autotest</artifactId>
     <version>1.0-SNAPSHOT</version>
-    <build>
+        <build>
         <plugins>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
@@ -17,38 +17,37 @@
                     <target>8</target>
                 </configuration>
             </plugin>
-        </plugins>
-    </build>
-    <!--    <build>-->
-<!--        <plugins>-->
+
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-surefire-plugin</artifactId>
+                <version>3.0.0-M3</version>
+                <configuration>
+                    <testFailureIgnore>true</testFailureIgnore>
+                    <encoding>UTF-8</encoding>
+                    <suiteXmlFiles>
+                        <suiteXmlFile>src/test/testng.xml</suiteXmlFile>
+                    </suiteXmlFiles>
+                    <properties>
+                        <property>
+                            <name>listen</name>
+                            <value>org.uncommons.reportng.HTMLReporter, org.uncommons.reportng.JUnitXMLReporter</value>
+                        </property>
+                    </properties>
+                </configuration>
+
+            </plugin>
 <!--            <plugin>-->
 <!--                <groupId>org.apache.maven.plugins</groupId>-->
-<!--                <artifactId>maven-compiler-plugin</artifactId>-->
+<!--                <artifactId>maven-shade-plugin</artifactId>-->
+<!--                <version>3.0.0</version>-->
 <!--                <configuration>-->
-<!--                    <source>6</source>-->
-<!--                    <target>6</target>-->
+<!--                    <transformers-->
 <!--                </configuration>-->
 <!--            </plugin>-->
 
-<!--            <plugin>-->
-<!--                <groupId>org.apache.maven.plugins</groupId>-->
-<!--                <artifactId>maven-surefire-plugin</artifactId>-->
-<!--                <version>3.0.0-M3</version>-->
-<!--                <configuration>-->
-<!--                    <encoding>UTF-8</encoding>-->
-<!--                    <suiteXmlFiles>-->
-<!--                        <suiteXmlFile>src/test/testng.xml</suiteXmlFile>-->
-<!--                    </suiteXmlFiles>-->
-<!--&lt;!&ndash;                    <properties>&ndash;&gt;-->
-<!--&lt;!&ndash;                        <property>&ndash;&gt;-->
-<!--&lt;!&ndash;                            <name>listen</name>&ndash;&gt;-->
-<!--&lt;!&ndash;                            <value>org.uncommons.reportng.HTMLReporter, org.uncommons.reportng.JUnitXMLReporter</value>&ndash;&gt;-->
-<!--&lt;!&ndash;                        </property>&ndash;&gt;-->
-<!--&lt;!&ndash;                    </properties>&ndash;&gt;-->
-<!--                </configuration>-->
-<!--            </plugin>-->
-<!--        </plugins>-->
-<!--    </build>-->
+        </plugins>
+    </build>
 
     <dependencies>
 
@@ -75,7 +74,7 @@
         <dependency>
             <groupId>org.testng</groupId>
             <artifactId>testng</artifactId>
-            <version>6.11</version>
+            <version>6.8</version>
         </dependency>
 
         <!--数据持续集成-->
@@ -109,7 +108,7 @@
         <dependency>
             <groupId>com.aventstack</groupId>
             <artifactId>extentreports</artifactId>
-            <version>3.0.7</version>
+            <version>3.1.5</version>
         </dependency>
 
 

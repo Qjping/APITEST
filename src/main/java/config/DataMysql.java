@@ -2,9 +2,6 @@ package config;
 
 import java.sql.*;
 import java.util.*;
-import java.util.function.Supplier;
-import java.util.stream.IntStream;
-import java.util.stream.Stream;
 
 /*
  * JDBC操作数据库的步骤:
@@ -41,7 +38,7 @@ public class DataMysql implements Iterator<Object[]>{
             // DriverManager.registerDriver(new Driver());
             // 查看驱动类源码,注册两次驱动,浪费资源
             Class.forName(driverClassName);
-            String url = String.format("jdbc:mysql://%s:%s/%s?serverTimezone=UTC", ip, port, baseName);
+            String url = String.format("jdbc:mysql://%s:%s/%s?serverTimezone=UTC&useSSL=false", ip, port, baseName);
             //获取连接
             // 返回值是java.sql.Connection接口的实现类,在MySQL驱动程序中
             Connection conn = DriverManager.getConnection(url, userName, password);
@@ -51,10 +48,10 @@ public class DataMysql implements Iterator<Object[]>{
             Statement stmt = conn.createStatement();
             //执行sql语句，获取查询结果集
             result = stmt.executeQuery(sql);
-            System.out.println("结果集"+result.getMetaData().toString());
+//            System.out.println("结果集"+result.getMetaData().toString());
             //获取当前行数据
             ResultSetMetaData rd = result.getMetaData();
-            System.out.println("是否是当前行数据"+rd);
+//            System.out.println("是否是当前行数据"+rd);
             //循环每行
 
 
@@ -65,7 +62,7 @@ public class DataMysql implements Iterator<Object[]>{
                 for (int i = 1; i <= rd.getColumnCount(); i++) {
                     String key = result.getMetaData().getColumnName(i);
                     String value = result.getString(i);
-                    System.out.println("key"+key+"value"+value);
+//                    System.out.println("key"+key+"value"+value);
                     map.put(key,value);
                 }
                 dataList.add(map);
@@ -81,6 +78,8 @@ public class DataMysql implements Iterator<Object[]>{
             e.printStackTrace();
         }
     }
+
+
 
 
     @Override

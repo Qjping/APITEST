@@ -2,7 +2,7 @@
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
 <suite name="suite">
     <test name="TestCase">
-        <parameter  name="valueName" value="SELECT * FROM testcase  "/>
+        <parameter  name="valueName" value="SELECT * FROM testcase"/>
         <classes>
             <class name="TestCase"/>
         </classes>

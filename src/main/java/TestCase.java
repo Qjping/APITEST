@@ -1,31 +1,36 @@
 
-import com.google.gson.JsonObject;
 import com.jayway.jsonpath.JsonPath;
+
 import com.mysql.cj.core.util.StringUtils;
 
-import com.sun.org.apache.xpath.internal.functions.FuncFalse;
+
 import config.DataMysql;
+
 import config.DataMysql2;
 import config.TestConfig;
 import okhttp3.*;
-import org.apache.http.Header;
+
 import org.json.JSONObject;
 import org.testng.Assert;
 import org.testng.Reporter;
 import org.testng.annotations.*;
 import java.io.IOException;
-import java.lang.invoke.LambdaMetafactory;
+
 import java.util.Iterator;
 import java.util.Map;
 import java.util.concurrent.TimeUnit;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
+/**
+ * expected<key,value>
+ * result 返回结果
+ *
+ */
 
-import static java.lang.Boolean.TRUE;
-
-public class TestCase extends DataMysql2 {
+public class TestCase  extends DataMysql2{
 
     String sql=null;   //xml中读出的sql语句
+
 
     @Parameters({"valueName"})
     @BeforeClass()
@@ -33,22 +38,16 @@ public class TestCase extends DataMysql2 {
         this.sql = sql;
     }
 
-    @BeforeTest
-    public void globalVariable(){
-        TestConfig.setMap(TestConfig.map);
-        System.out.println(TestConfig.map.toString());
-    }
-
-   // 只能返回一个Object二维数组或一个Iterator<Object[]>来提供复杂的参数对象
-    @DataProvider(name = "testData")
-    private Iterator<Object[]> getData(){
-        return new DataMysql(TestConfig.IP,
-                TestConfig.PORT,
-                TestConfig.DATABASE,
-                TestConfig.USERNAME,
-                TestConfig.PASSWORD,
-                sql);
-    }
+//    只能返回一个Object二维数组或一个Iterator<Object[]>来提供复杂的参数对象
+//    @DataProvider(name = "testData")
+//    private Iterator<Object[]> getData(){
+//        return new DataMysql(TestConfig.IP,
+//                TestConfig.PORT,
+//                TestConfig.DATABASE,
+//                TestConfig.USERNAME,
+//                TestConfig.PASSWORD,
+//                sql);
+//    }
 
 
     @Test(dataProvider = "testData")
@@ -59,72 +58,92 @@ public class TestCase extends DataMysql2 {
         JSONObject header= new JSONObject(replaceVariableParemeters(dataMap.get("header")));
         dataMap.get("data").replaceAll(" ", "");
         String data = replaceVariableParemeters(dataMap.get("data"));
-        String expected = dataMap.get("expected");
+
 
         OkHttpClient okHttpClient = new OkHttpClient.Builder()
                 .connectTimeout(TestConfig.connectTimeout, TimeUnit.SECONDS)
                 .writeTimeout(TestConfig.writeTimeout,TimeUnit.SECONDS)
                 .readTimeout(TestConfig.readTimeout, TimeUnit.SECONDS).build();
 
-
         Request request =request(url,header,method,data);
         String result = null;
         Response response = null;
-        /**
-         * 发起请求
-         */
-        System.out.println("========================" + dataMap.get("description")+"========================");
-        Reporter.log("请求url："+url);
-        Reporter.log("请求参数："+data);
 
         //获取response
         try {
             response = okHttpClient.newCall(request).execute();
             result = response.body().string();
+            if(!StringUtils.isNullOrEmpty(dataMap.get("expected"))){
+                JSONObject expected =  new JSONObject(dataMap.get("expected"));
+                check(expected,response);
+            }
+            extrator(dataMap,result);
+            Reporter.log("请求url："+url);
+            Reporter.log("请求header"+header);
+            Reporter.log("请求参数："+data);
+            Reporter.log("返回数据:"+result);
         } catch (IOException e) {
             e.printStackTrace();
         }
-        Reporter.log("请求url:"+url);
-        Reporter.log("返回数据:"+result);
 
 
-        /**
-         * 保存返回结果中的变量
-         */
+
+    }
 
 
-        /**
-         * 校验
-         */
-        if (StringUtils.isNullOrEmpty(expected)){
-            //判断code==200
+    private static void check(JSONObject expecteds, Response response) throws IOException {
+
+        if (StringUtils.isNullOrEmpty(expecteds.toString())){
             Assert.assertTrue(response.code() >=400);
-        }else {
-            JSONObject jsonObject = new JSONObject(expected);
-            Iterator<String> expectedIterator = jsonObject.keys();
-            while(expectedIterator.hasNext()) {
-                // 获得校验参数的路径
-                String path = expectedIterator.next();
-                // 获得预期值
-                String expectedFiellds = jsonObject.getString(path);
-                if (StringUtils.isNullOrEmpty(expectedFiellds)) {
-                    //判断对应路径值存在
-                    Assert.assertNotNull(JsonPath.read(result,path));
-                }else{
-                    String str ="(?<=\\$\\{)(.+?)(?=})";
-                    Pattern p = Pattern.compile(str);
-                    Matcher m = p.matcher(expectedFiellds);
-                    if(m.find()){
-                        //去全局变量map里查
-                        expectedFiellds = expectedFiellds.replace("${","").replace("}","");
-                        Assert.assertEquals(JsonPath.read(result,path).toString(),TestConfig.map.get(expectedFiellds));
-                    }else {
-                        //对比预期值
-                        Assert.assertEquals(JsonPath.read(result,path),jsonObject.getString(path));
-                    }
+        }
+        JSONObject result = new JSONObject(response.body().string());
+        while (expecteds.keys().hasNext()){
+            String path = expecteds.keys().next();
+            //1.判断路径是否存在
+            if (!result.has(path)){
+                Assert.fail("路径不存在，路径"+path);
+            }else {
+               String expected = expecteds.getString(path);
+                String regex = "\\$\\{(.*?)\\}";
+                Pattern p = Pattern.compile(regex);
+                Matcher m = p.matcher(expected);
+                if (m.find()) {
+                    expected = expected.replace("${","").replace("}","");
+                    Assert.assertEquals(TestConfig.map.get(expected), result.getString(path));
+                } else {
+                    Assert.assertEquals(expecteds.getString(path), result.getString(path));
                 }
             }
+
         }
+
+
+//        JSONObject jsonObject = new JSONObject(expected);
+//        Iterator<String> expectedIterator = jsonObject.keys();
+//        while(expectedIterator.hasNext()) {
+//            // 获得校验参数的路径
+//            String path = expectedIterator.next();
+//
+//            // 获得预期值
+//            String expectedFiellds = jsonObject.getString(path);
+//            if (StringUtils.isNullOrEmpty(expectedFiellds)) {
+//                Assert.assertNotNull(JsonPath.read(result,path));
+//            }else{
+//                String str ="(?<=\\$\\{)(.+?)(?=})";
+//                Pattern p = Pattern.compile(str);
+//                Matcher m = p.matcher(expectedFiellds);
+//                if(m.find()){
+//                    //去全局变量map里查
+//                    expectedFiellds = expectedFiellds.replace("${","").replace("}","");
+//                    Assert.assertEquals(JsonPath.read(result,path).toString(),TestConfig.map.get(expectedFiellds));
+//                    } else {
+//                    //对比预期值
+//                    Assert.assertEquals(JsonPath.read(result,path),jsonObject.getString(path));
+//                    }
+//                }
+//            }
+
+
     }
 
     /**
@@ -132,19 +151,18 @@ public class TestCase extends DataMysql2 {
      * 如果不存在变量，则不做任何变动
      */
     private static String replaceVariableParemeters(String string){
-        if (!StringUtils.isNullOrEmpty(string)){
-            String str ="\\$\\{.*?}";
-            Pattern p = Pattern.compile(str);
-            Matcher m = p.matcher(string);
-            while (m.find()){
-                //去全局变量map里查
-                String newStr = m.group().replace("${","").replace("}","");
-                string = string.replace(m.group(),TestConfig.map.get(newStr));
+        if(StringUtils.isNullOrEmpty(string)){
+            return string;
+        }
+        String str ="\\$\\{.*?}";
+        Pattern p = Pattern.compile(str);
+        Matcher m = p.matcher(string);
+        while (m.find()){
+            //去全局变量map里查
+            String newStr = m.group().replace("${","").replace("}","");
+            string = string.replace(m.group(),TestConfig.map.get(newStr));
             }
             return string;
-        }else {
-            return "";
-        }
     }
 
     private static Request request(String url,JSONObject header,String method,String data){
@@ -158,6 +176,7 @@ public class TestCase extends DataMysql2 {
         }
 
         if(!header.has("Content-Type")){
+
             return  builder.url(url).get().build();
         }
 
@@ -184,11 +203,15 @@ public class TestCase extends DataMysql2 {
                 default: request = builder.url(url).build();break;
             }
         }
+        System.out.println(request.toString());
+        Reporter.log("返回数据:"+request.toString());
 
         return  request;
     }
 
-
+    /**
+     * 保存返回结果中的变量
+     */
     private static void extrator(Map<String, String> data,String result ){
         if (!StringUtils.isNullOrEmpty(data.get("has_global_variable"))) {
             //获得存储变量名及变量的path

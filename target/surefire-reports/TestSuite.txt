@@ -1,0 +1,13 @@
+-------------------------------------------------------------------------------
+Test set: TestSuite
+-------------------------------------------------------------------------------
+Tests run: 2, Failures: 2, Errors: 0, Skipped: 0, Time elapsed: 1.301 s <<< FAILURE! - in TestSuite
+test(TestCase)  Time elapsed: 0.007 s  <<< FAILURE!
+java.lang.NullPointerException
+	at TestCase.replaceVariableParemeters(TestCase.java:158)
+	at TestCase.test(TestCase.java:58)
+
+test(TestCase)  Time elapsed: 0 s  <<< FAILURE!
+java.lang.NullPointerException
+	at TestCase.test(TestCase.java:61)
+

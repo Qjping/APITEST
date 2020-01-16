@@ -27,7 +27,7 @@ public class TestConfig {
      * 全局变量
      */
     public static Map<String,String> map = new HashMap<String,String>();
-    public static void setMap(Map map) {
+    static{
         map.put("KoreaDirectId","");        //韩国直邮商品id
         map.put("KoreaDirectSimpleId","");       //韩国直邮商品simple_id
         map.put("device_uid","Jmeter_ApiTest_device_uid");
@@ -36,4 +36,5 @@ public class TestConfig {
         map.put("password","123456");
 
     }
+
 }

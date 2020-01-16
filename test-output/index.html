@@ -4,14 +4,14 @@
 
 
 <head>
-	<meta charset='utf-8' /> 
+	<meta charset='UTF-8' /> 
 	<meta name='description' content='' />
 	<meta name='robots' content='noodp, noydir' />
 	<meta name='viewport' content='width=device-width, initial-scale=1' />
 	<meta id="timeStampFormat" name="timeStampFormat" content='MMM d, yyyy hh:mm:ss a'/>
 	
-	<link href='https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,600' rel='stylesheet' type='text/css'>
-	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+	<link href='https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,600' rel='stylesheet' type='text/css' />
+	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
 
 		<link href='http://extentreports.com/resx/dist/css/extent.css' type='text/css' rel='stylesheet' />
 	
@@ -34,8 +34,7 @@
 		<!-- slideout menu -->
 		<ul id='slide-out' class='side-nav fixed hide-on-med-and-down'>
 			<li class='waves-effect active'><a href='#!' view='test-view' onclick="configureView(0);chartsView('test');"><i class='material-icons'>dashboard</i></a></li>
-						<li class='waves-effect'><a href='#!' view='exception-view' onclick="configureView(2)"><i class='material-icons'>bug_report</i></a></li>
-			<li class='waves-effect'><a href='#!' onclick="configureView(-1);chartsView('dashboard');" view='dashboard-view'><i class='material-icons'>track_changes</i></i></a></li>
+						<li class='waves-effect'><a href='#!' onclick="configureView(-1);chartsView('dashboard');" view='dashboard-view'><i class='material-icons'>track_changes</i></i></a></li>
 		</ul>
 
 		<!-- report name -->
@@ -48,12 +47,12 @@
 		<ul id='nav-mobile' class='right hide-on-med-and-down nav-right'>
 			<li>
                 <a href='#!'>
-                    <span class='label suite-start-time blue darken-3'>Oct 30, 2019 06:12:53 PM</span>
+                    <span class='label suite-start-time blue darken-3'>Jan 16, 2020 07:42:33 PM</span>
 				</a>
 			</li>
 			<li>
                 <a href='#!'>
-                    <span class='label blue darken-3'>v3.0.7</span>
+                    <span class='label blue darken-3'>3.1.5</span>
 				</a>
 			</li>
 		</ul>
@@ -73,7 +72,7 @@
 					<i class='material-icons'>warning</i> Status
 				</a>
 				<ul id='tests-toggle' class='dropdown-content'>
-											<li status='fail'><a href='#!'>Fail <i class='material-icons red-text'>cancel</i></a></li>
+											<li status='pass'><a href='#!'>Pass <i class='material-icons green-text'>check_circle</i></a></li>
 					<li class='divider'></li>
 					<li status='clear' clear='true'><a href='#!'>Clear Filters <i class='material-icons'>clear</i></a></li>
 				</ul>
@@ -124,10 +123,10 @@
 					<canvas id='parent-analysis' width='100' height='80'></canvas>
 				</div>
 				<div class='block text-small'>
-					<span class='tooltipped' data-position='top' data-tooltip='0%'><span class='strong'>0</span> test(s) passed</span>
+					<span class='tooltipped' data-position='top' data-tooltip='100%'><span class='strong'>2</span> test(s) passed</span>
 				</div>
 				<div class='block text-small'>
-					<span class='strong tooltipped' data-position='top' data-tooltip='100%'>2</span> test(s) failed, <span class='strong tooltipped' data-position='top' data-tooltip='0%'>0</span> others
+					<span class='strong tooltipped' data-position='top' data-tooltip='0%'>0</span> test(s) failed, <span class='strong tooltipped' data-position='top' data-tooltip='0%'>0</span> others
 				</div>
 			</div>
 		</div>
@@ -139,10 +138,10 @@
 					<canvas id='child-analysis' width='100' height='80'></canvas>
 				</div>
 				<div class='block text-small'>
-					<span class='tooltipped' data-position='top' data-tooltip='0%'><span class='strong'>0</span> step(s) passed</span>
+					<span class='tooltipped' data-position='top' data-tooltip='100%'><span class='strong'>2</span> step(s) passed</span>
 				</div>
 				<div class='block text-small'>
-					<span class='strong tooltipped' data-position='top' data-tooltip='100%'>2</span> step(s) failed, <span class='strong tooltipped' data-position='top' data-tooltip='0%'>0</span> others
+					<span class='strong tooltipped' data-position='top' data-tooltip='0%'>0</span> step(s) failed, <span class='strong tooltipped' data-position='top' data-tooltip='0%'>0</span> others
 				</div>
 			</div>
 		</div>
@@ -157,17 +156,17 @@
 			<ul id='test-collection' class='test-collection'>
 				
 				
-				<li class='test displayed active  fail' status='fail' bdd='false' test-id='1'>
+				<li class='test displayed active  pass' status='pass' bdd='false' test-id='1'>
 					<div class='test-heading'>
 						<span class='test-name'>获取设备信息</span>
-						<span class='test-time'>Oct 30, 2019 06:12:53 PM</span>
-						<span class='test-status right fail'>fail</span>
+						<span class='test-time'>Jan 16, 2020 07:42:33 PM</span>
+						<span class='test-status right pass'>pass</span>
 					</div>
 					<div class='test-content hide'>
 <div class='test-time-info'>
-	<span class='label start-time'>Oct 30, 2019 06:12:53 PM</span>
-	<span class='label end-time'>Oct 30, 2019 06:12:53 PM</span>
-	<span class='label time-taken grey lighten-1 white-text'>0h 0m 0s+3ms</span>
+	<span class='label start-time'>Jan 16, 2020 07:42:33 PM</span>
+	<span class='label end-time'>Jan 16, 2020 07:42:34 PM</span>
+	<span class='label time-taken grey lighten-1 white-text'>0h 0m 0s+927ms</span>
 </div>
 	<div class='test-steps'>
 		<table class='bordered table-results'>
@@ -179,38 +178,30 @@
 				</tr>
 			</thead>
 			<tbody>
-				<tr class='log' status='fail'>
-					<td class='status fail' title='fail' alt='fail'><i class='material-icons'>cancel</i></td>
-					<td class='timestamp'>6:12:54 PM</td>
-					<td class='step-details'><pre>java.lang.NullPointerException
-	at java.lang.String.replace(String.java:2240)
-	at TestCase.replaceVariableParemeters(TestCase.java:142)
-	at TestCase.test(TestCase.java:59)
-	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
-	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
-	at java.lang.reflect.Method.invoke(Method.java:498)
-	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:108)
-	at org.testng.internal.Invoker.invokeMethod(Invoker.java:661)
-	at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:869)
-	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1193)
-	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:126)
-	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:109)
-	at org.testng.TestRunner.privateRun(TestRunner.java:744)
-	at org.testng.TestRunner.run(TestRunner.java:602)
-	at org.testng.SuiteRunner.runTest(SuiteRunner.java:380)
-	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:375)
-	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:340)
-	at org.testng.SuiteRunner.run(SuiteRunner.java:289)
-	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
-	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:86)
-	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1301)
-	at org.testng.TestNG.runSuitesLocally(TestNG.java:1226)
-	at org.testng.TestNG.runSuites(TestNG.java:1144)
-	at org.testng.TestNG.run(TestNG.java:1115)
-	at org.testng.IDEARemoteTestNG.run(IDEARemoteTestNG.java:73)
-	at org.testng.RemoteTestNGStarter.main(RemoteTestNGStarter.java:123)
-</pre></td>
+				<tr class='log' status='debug'>
+					<td class='status debug' title='debug' alt='debug'><i class='material-icons'>low_priority</i></td>
+					<td class='timestamp'>7:42:35 PM</td>
+					<td class='step-details'>请求url： https://m.wconcept.cn/api/rest/wcc/order?limit=10&list=order&page=1</td>
+				</tr>
+				<tr class='log' status='debug'>
+					<td class='status debug' title='debug' alt='debug'><i class='material-icons'>low_priority</i></td>
+					<td class='timestamp'>7:42:35 PM</td>
+					<td class='step-details'>请求header{"Cookie":"PHPSESSID=5jg0aenvd94alfqnh2isk0m4k5; _cid=RwxA19jgr1fmst9x","Authorization":"642010df7a7bf03706ceb498f8afae04","ACCEPT":"*/*","Connection":"keep-alive","User-Agent":"wcc/4.0.1 (iPhone; iOS 11.4.1; Scale/2.00)","Accept-Language":"zh-Hans;q=1"}</td>
+				</tr>
+				<tr class='log' status='debug'>
+					<td class='status debug' title='debug' alt='debug'><i class='material-icons'>low_priority</i></td>
+					<td class='timestamp'>7:42:35 PM</td>
+					<td class='step-details'>请求参数：</td>
+				</tr>
+				<tr class='log' status='debug'>
+					<td class='status debug' title='debug' alt='debug'><i class='material-icons'>low_priority</i></td>
+					<td class='timestamp'>7:42:35 PM</td>
+					<td class='step-details'>返回数据:{"messages":{"error":[{"code":404,"message":"Request does not match any route."}]}}</td>
+				</tr>
+				<tr class='log' status='pass'>
+					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+					<td class='timestamp'>7:42:35 PM</td>
+					<td class='step-details'>Test passed</td>
 				</tr>
 			</tbody>
 		</table>
@@ -219,17 +210,17 @@
 				</li>
 				
 				
-				<li class='test displayed active  fail' status='fail' bdd='false' test-id='2'>
+				<li class='test displayed active  pass' status='pass' bdd='false' test-id='2'>
 					<div class='test-heading'>
 						<span class='test-name'>null</span>
-						<span class='test-time'>Oct 30, 2019 06:12:53 PM</span>
-						<span class='test-status right fail'>fail</span>
+						<span class='test-time'>Jan 16, 2020 07:42:34 PM</span>
+						<span class='test-status right pass'>pass</span>
 					</div>
 					<div class='test-content hide'>
 <div class='test-time-info'>
-	<span class='label start-time'>Oct 30, 2019 06:12:53 PM</span>
-	<span class='label end-time'>Oct 30, 2019 06:12:54 PM</span>
-	<span class='label time-taken grey lighten-1 white-text'>0h 0m 0s+902ms</span>
+	<span class='label start-time'>Jan 16, 2020 07:42:34 PM</span>
+	<span class='label end-time'>Jan 16, 2020 07:42:35 PM</span>
+	<span class='label time-taken grey lighten-1 white-text'>0h 0m 0s+689ms</span>
 </div>
 	<div class='test-steps'>
 		<table class='bordered table-results'>
@@ -243,60 +234,30 @@
 			<tbody>
 				<tr class='log' status='debug'>
 					<td class='status debug' title='debug' alt='debug'><i class='material-icons'>low_priority</i></td>
-					<td class='timestamp'>6:12:54 PM</td>
+					<td class='timestamp'>7:42:35 PM</td>
 					<td class='step-details'>请求url：https://m.wconcept.cn/api/rest/wcc/reports/coupon</td>
 				</tr>
 				<tr class='log' status='debug'>
 					<td class='status debug' title='debug' alt='debug'><i class='material-icons'>low_priority</i></td>
-					<td class='timestamp'>6:12:54 PM</td>
+					<td class='timestamp'>7:42:35 PM</td>
+					<td class='step-details'>请求header{"Cookie":"PHPSESSID=5jg0aenvd94alfqnh2isk0m4k5; _cid=RwxA19jgr1fmst9x","Authorization":"642010df7a7bf03706ceb498f8afae04","Accept":"*/*","Connection":"keep-alive","User-Agent":"wcc/4.0.1 (iPhone; iOS 11.4.1; Scale/2.00)","Accept-Language":"zh-Hans;q=1"}</td>
+				</tr>
+				<tr class='log' status='debug'>
+					<td class='status debug' title='debug' alt='debug'><i class='material-icons'>low_priority</i></td>
+					<td class='timestamp'>7:42:35 PM</td>
 					<td class='step-details'>请求参数：{"mobile": "15679483383","password": 123456,"device_uid":"Jmeter_ApiTest_device_uid","device_type": "Android","loginType":"3"}</td>
 				</tr>
 				<tr class='log' status='debug'>
 					<td class='status debug' title='debug' alt='debug'><i class='material-icons'>low_priority</i></td>
-					<td class='timestamp'>6:12:54 PM</td>
-					<td class='step-details'>请求url:https://m.wconcept.cn/api/rest/wcc/reports/coupon</td>
-				</tr>
-				<tr class='log' status='debug'>
-					<td class='status debug' title='debug' alt='debug'><i class='material-icons'>low_priority</i></td>
-					<td class='timestamp'>6:12:54 PM</td>
+					<td class='timestamp'>7:42:35 PM</td>
 					<td class='step-details'>返回数据:
 
-[{"rule_id":"1613994","name":"\u53cc\u5341\u4e00\u5927\u4fc3\u94f6\u5361\u53e0\u52a0\u6298\u4e0a97\u6298","desc":"\u5168\u573a\u53ef\u53e0\u52a0(\u7279\u6b8a\u5546\u54c1\u9664\u5916)","from_date":"2019-10-29","from_date_ts":1572278400,"to_date":"2019-11-13 23:59","to_date_ts":1573660740,"times_used":null,"uses_per_customer":"5","is_app":"0","coupon_id":"2395","coupon_code":"1111vipsilver95","promotion_link":null,"from_date_web_format":"2019.10.29","to_date_web_format":"2019.11.13"},{"rule_id":"1616404","name":"GOLDEN MATRX \u6ee1500\u51cf50","desc":"\u652f\u6301\u4e0e\u8be5\u54c1\u724c\u4fc3\u9500\u53e0\u52a0","from_date":"2019-10-29","from_date_ts":1572278400,"to_date":"2019-11-13","to_date_ts":1573660799,"times_used":null,"uses_per_customer":"1","is_app":"0","coupon_id":"2400","coupon_code":"1111gm500minus50","promotion_link":null,"from_date_web_format":"2019.10.29","to_date_web_format":"2019.11.13"},{"rule_id":"1616415","name":"GOLDEN MATRX \u6ee11000\u51cf100","desc":"\u652f\u6301\u4e0e\u8be5\u54c1\u724c\u4fc3\u9500\u53e0\u52a0","from_date":"2019-10-29","from_date_ts":1572278400,"to_date":"2019-11-13","to_date_ts":1573660799,"times_used":null,"uses_per_customer":"1","is_app":"0","coupon_id":"2401","coupon_code":"1111gm1000minus100","promotion_link":null,"from_date_web_format":"2019.10.29","to_date_web_format":"2019.11.13"},{"rule_id":"1616416","name":"GOLDEN MATRX \u6ee11500\u51cf200","desc":"\u652f\u6301\u4e0e\u8be5\u54c1\u724c\u4fc3\u9500\u53e0\u52a0","from_date":"2019-10-29","from_date_ts":1572278400,"to_date":"2019-11-13","to_date_ts":1573660799,"times_used":null,"uses_per_customer":"1","is_app":"0","coupon_id":"2402","coupon_code":"1111gm1500minus200","promotion_link":null,"from_date_web_format":"2019.10.29","to_date_web_format":"2019.11.13"},{"rule_id":"1616417","name":"GOLDEN MATRX \u6ee12000\u51cf300","desc":"\u652f\u6301\u4e0e\u8be5\u54c1\u724c\u4fc3\u9500\u53e0\u52a0","from_date":"2019-10-29","from_date_ts":1572278400,"to_date":"2019-11-13","to_date_ts":1573660799,"times_used":null,"uses_per_customer":"1","is_app":"0","coupon_id":"2403","coupon_code":"1111gm2000minus300","promotion_link":null,"from_date_web_format":"2019.10.29","to_date_web_format":"2019.11.13"},{"rule_id":"1616418","name":"RESHAKE10\u5143\u5238","desc":"\u6ee111\u53ef\u7528\uff0c\u652f\u6301\u4e0e\u8be5\u54c1\u724c\u4fc3\u9500\u53e0\u52a0","from_date":"2019-10-29","from_date_ts":1572278400,"to_date":"2019-11-13","to_date_ts":1573660799,"times_used":null,"uses_per_customer":"1","is_app":"0","coupon_id":"2405","coupon_code":"1111RESHAKE10","promotion_link":null,"from_date_web_format":"2019.10.29","to_date_web_format":"2019.11.13"},{"rule_id":"1616419","name":"RESHAKE \u6ee1500\u51cf50","desc":"\u652f\u6301\u4e0e\u8be5\u54c1\u724c\u4fc3\u9500\u53e0\u52a0","from_date":"2019-10-29","from_date_ts":1572278400,"to_date":"2019-11-13","to_date_ts":1573660799,"times_used":null,"uses_per_customer":"1","is_app":"0","coupon_id":"2406","coupon_code":"1111RESHAKE50","promotion_link":null,"from_date_web_format":"2019.10.29","to_date_web_format":"2019.11.13"},{"rule_id":"1616420","name":"RESHAKE \u6ee11000\u51cf100","desc":"\u652f\u6301\u4e0e\u8be5\u54c1\u724c\u4fc3\u9500\u53e0\u52a0","from_date":"2019-10-29","from_date_ts":1572278400,"to_date":"2019-11-13","to_date_ts":1573660799,"times_used":null,"uses_per_customer":"1","is_app":"0","coupon_id":"2407","coupon_code":"1111RESHAKE100","promotion_link":null,"from_date_web_format":"2019.10.29","to_date_web_format":"2019.11.13"},{"rule_id":"1616421","name":"RESHAKE \u6ee12000\u51cf300","desc":"\u652f\u6301\u4e0e\u8be5\u54c1\u724c\u4fc3\u9500\u53e0\u52a0","from_date":"2019-10-29","from_date_ts":1572278400,"to_date":"2019-11-13","to_date_ts":1573660799,"times_used":null,"uses_per_customer":"1","is_app":"0","coupon_id":"2408","coupon_code":"1111RESHAKE300","promotion_link":null,"from_date_web_format":"2019.10.29","to_date_web_format":"2019.11.13"},{"rule_id":"1616442","name":"RESHAKE \u6ee13000\u51cf600","desc":"\u652f\u6301\u4e0e\u8be5\u54c1\u724c\u4fc3\u9500\u53e0\u52a0","from_date":"2019-10-29","from_date_ts":1572278400,"to_date":"2019-11-13","to_date_ts":1573660799,"times_used":null,"uses_per_customer":"1","is_app":"0","coupon_id":"2409","coupon_code":"1111RESHAKE600","promotion_link":null,"from_date_web_format":"2019.10.29","to_date_web_format":"2019.11.13"},{"rule_id":"1616443","name":"RESHAKE \u6ee15000\u51cf1000","desc":"\u652f\u6301\u4e0e\u8be5\u54c1\u724c\u4fc3\u9500\u53e0\u52a0","from_date":"2019-10-29","from_date_ts":1572278400,"to_date":"2019-11-13","to_date_ts":1573660799,"times_used":null,"uses_per_customer":"1","is_app":"0","coupon_id":"2410","coupon_code":"1111RESHAKE1000","promotion_link":null,"from_date_web_format":"2019.10.29","to_date_web_format":"2019.11.13"},{"rule_id":"1616444","name":"CFRIENDS \u5168\u573a\u6ee11500\u51cf50","desc":null,"from_date":"2019-10-29","from_date_ts":1572278400,"to_date":"2019-11-13","to_date_ts":1573660799,"times_used":null,"uses_per_customer":"1","is_app":"0","coupon_id":"2412","coupon_code":"1111CFRIENDS50","promotion_link":null,"from_date_web_format":"2019.10.29","to_date_web_format":"2019.11.13"},{"rule_id":"1618944","name":"\u53cc\u5341\u4e0029\u5143\u9884\u552e\u53e0\u52a0\u5238","desc":"\u9650\u9884\u552e\u6307\u5b9a\u5546\u54c1\u4f7f\u7528","from_date":"2019-10-29","from_date_ts":1572278400,"to_date":"2019-11-07","to_date_ts":1573142399,"times_used":null,"uses_per_customer":"1","is_app":"0","coupon_id":"2416","coupon_code":"1111presale29","promotion_link":null,"from_date_web_format":"2019.10.29","to_date_web_format":"2019.11.07"},{"rule_id":"1618955","name":"Talitaqoom\u90e8\u5206\u5546\u54c1\u6ee1400\u51cf50","desc":null,"from_date":"2019-10-29","from_date_ts":1572278400,"to_date":"2019-11-13","to_date_ts":1573660799,"times_used":null,"uses_per_customer":"1","is_app":"0","coupon_id":"2417","coupon_code":"1111Talitaqoom50","promotion_link":null,"from_date_web_format":"2019.10.29","to_date_web_format":"2019.11.13"},{"rule_id":"1618956","name":"Toomanyshoes\u5168\u573a50\u5143\u65e0\u95e8\u69db\u5238","desc":null,"from_date":"2019-10-29","from_date_ts":1572278400,"to_date":"2019-11-13","to_date_ts":1573660799,"times_used":null,"uses_per_customer":"1","is_app":"0","coupon_id":"2418","coupon_code":"1111TMshoes50","promotion_link":null,"from_date_web_format":"2019.10.29","to_date_web_format":"2019.11.13"},{"rule_id":"1618967","name":"Crocus by gk-beck\u65b0\u54c1\u6ee12\u4ef68\u6298","desc":null,"from_date":"2019-10-29","from_date_ts":1572278400,"to_date":"2019-11-13","to_date_ts":1573660799,"times_used":null,"uses_per_customer":"1","is_app":"0","coupon_id":"2420","coupon_code":"1111CBGB20off","promotion_link":null,"from_date_web_format":"2019.10.29","to_date_web_format":"2019.11.13"},{"rule_id":"1618968","name":"Crocus by gk-beck\u90e8\u5206\u70ed\u9500\u6b3e\u6ee1200\u51cf20","desc":null,"from_date":"2019-10-29","from_date_ts":1572278400,"to_date":"2019-11-13","to_date_ts":1573660799,"times_used":null,"uses_per_customer":"1","is_app":"0","coupon_id":"2421","coupon_code":"1111CBGB20","promotion_link":null,"from_date_web_format":"2019.10.29","to_date_web_format":"2019.11.13"},{"rule_id":"1618990","name":"FEO \u5168\u573a\u6ee1199\u51cf20","desc":"\u652f\u6301\u4e0e\u8be5\u54c1\u724c\u4fc3\u9500\u53e0\u52a0","from_date":"2019-10-29","from_date_ts":1572278400,"to_date":"2019-11-13","to_date_ts":1573660799,"times_used":null,"uses_per_customer":"1","is_app":"0","coupon_id":"2424","coupon_code":"1111FEO20","promotion_link":null,"from_date_web_format":"2019.10.29","to_date_web_format":"2019.11.13"},{"rule_id":"1618991","name":"FEO \u5168\u573a\u6ee1299\u51cf30","desc":"\u652f\u6301\u4e0e\u8be5\u54c1\u724c\u4fc3\u9500\u53e0\u52a0","from_date":"2019-10-29","from_date_ts":1572278400,"to_date":"2019-11-13","to_date_ts":1573660799,"times_used":null,"uses_per_customer":"1","is_app":"0","coupon_id":"2425","coupon_code":"1111FEO30","promotion_link":null,"from_date_web_format":"2019.10.29","to_date_web_format":"2019.11.13"},{"rule_id":"1618992","name":"FEO \u5168\u573a\u6ee1399\u51cf50","desc":"\u652f\u6301\u4e0e\u8be5\u54c1\u724c\u4fc3\u9500\u53e0\u52a0","from_date":"2019-10-29","from_date_ts":1572278400,"to_date":"2019-11-13","to_date_ts":1573660799,"times_used":null,"uses_per_customer":"1","is_app":"0","coupon_id":"2426","coupon_code":"1111FEO50","promotion_link":null,"from_date_web_format":"2019.10.29","to_date_web_format":"2019.11.13"},{"rule_id":"1619013","name":"FEO \u5168\u573a\u6ee1599\u51cf100","desc":"\u652f\u6301\u4e0e\u8be5\u54c1\u724c\u4fc3\u9500\u53e0\u52a0","from_date":"2019-10-29","from_date_ts":1572278400,"to_date":"2019-11-13","to_date_ts":1573660799,"times_used":null,"uses_per_customer":"1","is_app":"0","coupon_id":"2427","coupon_code":"1111FEO100","promotion_link":null,"from_date_web_format":"2019.10.29","to_date_web_format":"2019.11.13"},{"rule_id":"1619014","name":"C.ROUTINE \uff0f WAYWARD \u5168\u573a\u9886\u5238\u6ee1200\u51cf15","desc":null,"from_date":"2019-10-29","from_date_ts":1572278400,"to_date":"2019-11-13","to_date_ts":1573660799,"times_used":null,"uses_per_customer":"1","is_app":"0","coupon_id":"2428","coupon_code":"1111cw15","promotion_link":null,"from_date_web_format":"2019.10.29","to_date_web_format":"2019.11.13"},{"rule_id":"1619035","name":"Lewis Walt\u5168\u573a\u6ee11000\u51cf100","desc":null,"from_date":"2019-10-29","from_date_ts":1572278400,"to_date":"2019-11-13","to_date_ts":1573660799,"times_used":null,"uses_per_customer":"1","is_app":"0","coupon_id":"2429","coupon_code":"1111LewisWalt100","promotion_link":null,"from_date_web_format":"2019.10.29","to_date_web_format":"2019.11.13"},{"rule_id":"1619036","name":"DERMAWAND\u65e0\u95e8\u69db150\u5143\u4f18\u60e0\u5238","desc":null,"from_date":"2019-10-29","from_date_ts":1572278400,"to_date":"2019-11-13","to_date_ts":1573660799,"times_used":null,"uses_per_customer":"1","is_app":"0","coupon_id":"2430","coupon_code":"1111DERMAWAND150","promotion_link":null,"from_date_web_format":"2019.10.29","to_date_web_format":"2019.11.13"},{"rule_id":"1619067","name":"NewYogO\u5168\u573a\u6ee1699\u51cf40","desc":null,"from_date":"2019-10-29","from_date_ts":1572278400,"to_date":"2019-11-13","to_date_ts":1573660799,"times_used":null,"uses_per_customer":"1","is_app":"0","coupon_id":"2432","coupon_code":"1111NewYogO40","promotion_link":null,"from_date_web_format":"2019.10.29","to_date_web_format":"2019.11.13"},{"rule_id":"1619078","name":"NewYogO\u5168\u573a\u6ee11399\u51cf100","desc":null,"from_date":"2019-10-29","from_date_ts":1572278400,"to_date":"2019-11-13","to_date_ts":1573660799,"times_used":null,"uses_per_customer":"1","is_app":"0","coupon_id":"2433","coupon_code":"1111NewYogO100","promotion_link":null,"from_date_web_format":"2019.10.29","to_date_web_format":"2019.11.13"},{"rule_id":"1619079","name":"Even Vintage\u5168\u573a\u6ee1500\u51cf50","desc":"\u652f\u6301\u4e0e\u8be5\u54c1\u724c\u4fc3\u9500\u53e0\u52a0","from_date":"2019-10-29","from_date_ts":1572278400,"to_date":"2019-11-13","to_date_ts":1573660799,"times_used":null,"uses_per_customer":"1","is_app":"0","coupon_id":"2435","coupon_code":"1111EV50","promotion_link":null,"from_date_web_format":"2019.10.29","to_date_web_format":"2019.11.13"},{"rule_id":"1619080","name":"Even Vintage\u5168\u573a\u6ee11000\u51cf100","desc":"\u652f\u6301\u4e0e\u8be5\u54c1\u724c\u4fc3\u9500\u53e0\u52a0","from_date":"2019-10-29","from_date_ts":1572278400,"to_date":"2019-11-13","to_date_ts":1573660799,"times_used":null,"uses_per_customer":"1","is_app":"0","coupon_id":"2436","coupon_code":"1111EV100","promotion_link":null,"from_date_web_format":"2019.10.29","to_date_web_format":"2019.11.13"},{"rule_id":"1619081","name":"Even Vintage\u5168\u573a\u6ee11500\u51cf200","desc":"\u652f\u6301\u4e0e\u8be5\u54c1\u724c\u4fc3\u9500\u53e0\u52a0","from_date":"2019-10-29","from_date_ts":1572278400,"to_date":"2019-11-13","to_date_ts":1573660799,"times_used":null,"uses_per_customer":"1","is_app":"0","coupon_id":"2437","coupon_code":"1111EV200","promotion_link":null,"from_date_web_format":"2019.10.29","to_date_web_format":"2019.11.13"},{"rule_id":"1619082","name":"Even Vintage\u5168\u573a\u6ee12000\u51cf300","desc":"\u652f\u6301\u4e0e\u8be5\u54c1\u724c\u4fc3\u9500\u53e0\u52a0","from_date":"2019-10-29","from_date_ts":1572278400,"to_date":"2019-11-13","to_date_ts":1573660799,"times_used":null,"uses_per_customer":"1","is_app":"0","coupon_id":"2438","coupon_code":"1111EV300","promotion_link":null,"from_date_web_format":"2019.10.29","to_date_web_format":"2019.11.13"},{"rule_id":"1619083","name":"Even Vintage\u5168\u573a\u6ee13000\u51cf500","desc":"\u652f\u6301\u4e0e\u8be5\u54c1\u724c\u4fc3\u9500\u53e0\u52a0","from_date":"2019-10-29","from_date_ts":1572278400,"to_date":"2019-11-13","to_date_ts":1573660799,"times_used":null,"uses_per_customer":"1","is_app":"0","coupon_id":"2439","coupon_code":"1111EV500","promotion_link":null,"from_date_web_format":"2019.10.29","to_date_web_format":"2019.11.13"},{"rule_id":"1619134","name":"fano studios\u5168\u573a\u6ee1299\u51cf10","desc":null,"from_date":"2019-10-29","from_date_ts":1572278400,"to_date":"2019-11-13","to_date_ts":1573660799,"times_used":null,"uses_per_customer":"1","is_app":"0","coupon_id":"2443","coupon_code":"1111fano10","promotion_link":null,"from_date_web_format":"2019.10.29","to_date_web_format":"2019.11.13"},{"rule_id":"1619155","name":"fano studios\u5168\u573a\u6ee1499\u51cf15","desc":null,"from_date":"2019-10-29","from_date_ts":1572278400,"to_date":"2019-11-13","to_date_ts":1573660799,"times_used":null,"uses_per_customer":"1","is_app":"0","coupon_id":"2444","coupon_code":"1111fano15","promotion_link":null,"from_date_web_format":"2019.10.29","to_date_web_format":"2019.11.13"},{"rule_id":"1619166","name":"fano studios\u5168\u573a\u6ee1699\u51cf20","desc":null,"from_date":"2019-10-29","from_date_ts":1572278400,"to_date":"2019-11-13","to_date_ts":1573660799,"times_used":null,"uses_per_customer":"1","is_app":"0","coupon_id":"2445","coupon_code":"1111fano20","promotion_link":null,"from_date_web_format":"2019.10.29","to_date_web_format":"2019.11.13"},{"rule_id":"1619167","name":"fano studios\u5168\u573a\u6ee1899\u51cf25","desc":null,"from_date":"2019-10-29","from_date_ts":1572278400,"to_date":"2019-11-13","to_date_ts":1573660799,"times_used":null,"uses_per_customer":"1","is_app":"0","coupon_id":"2446","coupon_code":"1111fano25","promotion_link":null,"from_date_web_format":"2019.10.29","to_date_web_format":"2019.11.13"},{"rule_id":"1619168","name":"fano studios\u5168\u573a\u6ee11099\u51cf30","desc":null,"from_date":"2019-10-29","from_date_ts":1572278400,"to_date":"2019-11-13","to_date_ts":1573660799,"times_used":null,"uses_per_customer":"1","is_app":"0","coupon_id":"2447","coupon_code":"1111fano30","promotion_link":null,"from_date_web_format":"2019.10.29","to_date_web_format":"2019.11.13"},{"rule_id":"1619179","name":"Bothyoung\u5168\u573a\u6ee1499\u51cf50","desc":null,"from_date":"2019-10-29","from_date_ts":1572278400,"to_date":"2019-11-13","to_date_ts":1573660799,"times_used":null,"uses_per_customer":"1","is_app":"0","coupon_id":"2449","coupon_code":"1111Bothyoung50","promotion_link":null,"from_date_web_format":"2019.10.29","to_date_web_format":"2019.11.13"},{"rule_id":"1619180","name":"Newtone\u5168\u573a\u6ee11000\u51cf100","desc":"\u652f\u6301\u4e0e\u8be5\u54c1\u724c\u4fc3\u9500\u53e0\u52a0","from_date":"2019-10-29","from_date_ts":1572278400,"to_date":"2019-11-13","to_date_ts":1573660799,"times_used":null,"uses_per_customer":"1","is_app":"0","coupon_id":"2454","coupon_code":"1111Newtone100","promotion_link":null,"from_date_web_format":"2019.10.29","to_date_web_format":"2019.11.13"},{"rule_id":"1619201","name":"Newtone\u5168\u573a\u6ee12000\u51cf200","desc":"\u652f\u6301\u4e0e\u8be5\u54c1\u724c\u4fc3\u9500\u53e0\u52a0","from_date":"2019-10-29","from_date_ts":1572278400,"to_date":"2019-11-13","to_date_ts":1573660799,"times_used":null,"uses_per_customer":"1","is_app":"0","coupon_id":"2455","coupon_code":"1111Newtone200","promotion_link":null,"from_date_web_format":"2019.10.29","to_date_web_format":"2019.11.13"},{"rule_id":"1619202","name":"UNSPOKEN\u5168\u573a5\u5143\u65e0\u95e8\u69db\u4f18\u60e0\u5238","desc":"\u652f\u6301\u4e0e\u8be5\u54c1\u724c\u4fc3\u9500\u53e0\u52a0","from_date":"2019-10-29","from_date_ts":1572278400,"to_date":"2019-11-13","to_date_ts":1573660799,"times_used":null,"uses_per_customer":"1","is_app":"0","coupon_id":"2457","coupon_code":"1111UNSPOKEN5","promotion_link":null,"from_date_web_format":"2019.10.29","to_date_web_format":"2019.11.13"},{"rule_id":"1619203","name":"BLANCORE\u5168\u573a\u6ee12000\u7acb\u51cf500","desc":"\u652f\u6301\u4e0e\u8be5\u54c1\u724c\u4fc3\u9500\u53e0\u52a0","from_date":"2019-10-29","from_date_ts":1572278400,"to_date":"2019-11-13","to_date_ts":1573660799,"times_used":null,"uses_per_customer":"1","is_app":"0","coupon_id":"2460","coupon_code":"1111BLANCORE500","promotion_link":null,"from_date_web_format":"2019.10.29","to_date_web_format":"2019.11.13"},{"rule_id":"1619224","name":"\u53cc\u5341\u4e0069\u5143\u9884\u552e\u53e0\u52a0\u5238","desc":"\u9650\u9884\u552e\u6307\u5b9a\u5546\u54c1\u4f7f\u7528","from_date":"2019-10-29","from_date_ts":1572278400,"to_date":"2019-11-07","to_date_ts":1573142399,"times_used":null,"uses_per_customer":"1","is_app":"0","coupon_id":"2461","coupon_code":"1111presale69","promotion_link":null,"from_date_web_format":"2019.10.29","to_date_web_format":"2019.11.07"},{"rule_id":"1619225","name":"\u53cc\u5341\u4e0099\u5143\u9884\u552e\u53e0\u52a0\u5238","desc":"\u9650\u9884\u552e\u6307\u5b9a\u5546\u54c1\u4f7f\u7528","from_date":"2019-10-29","from_date_ts":1572278400,"to_date":"2019-11-07","to_date_ts":1573142399,"times_used":null,"uses_per_customer":"1","is_app":"0","coupon_id":"2462","coupon_code":"1111presale99","promotion_link":null,"from_date_web_format":"2019.10.29","to_date_web_format":"2019.11.07"},{"rule_id":"1619226","name":"\u53cc\u5341\u4e00159\u5143\u9884\u552e\u53e0\u52a0\u5238","desc":"\u9650\u9884\u552e\u6307\u5b9a\u5546\u54c1\u4f7f\u7528","from_date":"2019-10-29","from_date_ts":1572278400,"to_date":"2019-11-07","to_date_ts":1573142399,"times_used":null,"uses_per_customer":"1","is_app":"0","coupon_id":"2463","coupon_code":"1111presale159","promotion_link":null,"from_date_web_format":"2019.10.29","to_date_web_format":"2019.11.07"},{"rule_id":"1619227","name":"\u53cc\u5341\u4e00199\u5143\u9884\u552e\u53e0\u52a0\u5238","desc":"\u9650\u9884\u552e\u6307\u5b9a\u5546\u54c1\u4f7f\u7528","from_date":"2019-10-29","from_date_ts":1572278400,"to_date":"2019-11-07","to_date_ts":1573142399,"times_used":null,"uses_per_customer":"1","is_app":"0","coupon_id":"2464","coupon_code":"1111presale199","promotion_link":null,"from_date_web_format":"2019.10.29","to_date_web_format":"2019.11.07"},{"rule_id":"1619228","name":"\u53cc\u5341\u4e00259\u5143\u9884\u552e\u53e0\u52a0\u5238","desc":"\u9650\u9884\u552e\u6307\u5b9a\u5546\u54c1\u4f7f\u7528","from_date":"2019-10-29","from_date_ts":1572278400,"to_date":"2019-11-07","to_date_ts":1573142399,"times_used":null,"uses_per_customer":"1","is_app":"0","coupon_id":"2465","coupon_code":"1111presale259","promotion_link":null,"from_date_web_format":"2019.10.29","to_date_web_format":"2019.11.07"},{"rule_id":"1619229","name":"\u53cc\u5341\u4e00299\u5143\u9884\u552e\u53e0\u52a0\u5238","desc":"\u9650\u9884\u552e\u6307\u5b9a\u5546\u54c1\u4f7f\u7528","from_date":"2019-10-29","from_date_ts":1572278400,"to_date":"2019-11-07","to_date_ts":1573142399,"times_used":null,"uses_per_customer":"1","is_app":"0","coupon_id":"2466","coupon_code":"1111presale299","promotion_link":null,"from_date_web_format":"2019.10.29","to_date_web_format":"2019.11.07"},{"rule_id":"1619230","name":"\u53cc\u5341\u4e00369\u5143\u9884\u552e\u53e0\u52a0\u5238","desc":"\u9650\u9884\u552e\u6307\u5b9a\u5546\u54c1\u4f7f\u7528","from_date":"2019-10-29","from_date_ts":1572278400,"to_date":"2019-11-07","to_date_ts":1573142399,"times_used":null,"uses_per_customer":"1","is_app":"0","coupon_id":"2467","coupon_code":"1111presale369","promotion_link":null,"from_date_web_format":"2019.10.29","to_date_web_format":"2019.11.07"},{"rule_id":"1621667","name":"YOUPPIE!\u5168\u573a\u6ee1600\u51cf100","desc":"\u652f\u6301\u4e0e\u8be5\u54c1\u724c\u4fc3\u9500\u53e0\u52a0","from_date":"2019-10-29","from_date_ts":1572278400,"to_date":"2019-11-13","to_date_ts":1573660799,"times_used":null,"uses_per_customer":"1","is_app":"0","coupon_id":"2470","coupon_code":"1111YOUP100","promotion_link":null,"from_date_web_format":"2019.10.29","to_date_web_format":"2019.11.13"},{"rule_id":"1621668","name":"YOUPPIE!\u5168\u573a\u6ee1900\u51cf150","desc":"\u652f\u6301\u4e0e\u8be5\u54c1\u724c\u4fc3\u9500\u53e0\u52a0","from_date":"2019-10-29","from_date_ts":1572278400,"to_date":"2019-11-13","to_date_ts":1573660799,"times_used":null,"uses_per_customer":"1","is_app":"0","coupon_id":"2471","coupon_code":"1111YOUP150","promotion_link":null,"from_date_web_format":"2019.10.29","to_date_web_format":"2019.11.13"},{"rule_id":"1621689","name":"YOUPPIE!\u5168\u573a\u6ee11200\u51cf200","desc":"\u652f\u6301\u4e0e\u8be5\u54c1\u724c\u4fc3\u9500\u53e0\u52a0","from_date":"2019-10-29","from_date_ts":1572278400,"to_date":"2019-11-13","to_date_ts":1573660799,"times_used":null,"uses_per_customer":"1","is_app":"0","coupon_id":"2472","coupon_code":"1111YOUP200","promotion_link":null,"from_date_web_format":"2019.10.29","to_date_web_format":"2019.11.13"}]</td>
+[{"rule_id":"2604939","name":"Hello2020\u54c1\u724c95\u6298\u4f18\u60e0\u5238","desc":null,"from_date":"2020-01-08","from_date_ts":1578412800,"to_date":"2020-01-20","to_date_ts":1579535999,"times_used":null,"uses_per_customer":"0","is_app":"0","coupon_id":"2822","coupon_code":"hello2020z95","promotion_link":null,"from_date_web_format":"2020.01.08","to_date_web_format":"2020.01.20"},{"rule_id":"2604940","name":"Hello2020\u54c1\u7c7b95\u6298\u4f18\u60e0\u5238","desc":null,"from_date":"2020-01-08","from_date_ts":1578412800,"to_date":"2020-01-20","to_date_ts":1579535999,"times_used":null,"uses_per_customer":"0","is_app":"0","coupon_id":"2823","coupon_code":"hello2020pl95","promotion_link":null,"from_date_web_format":"2020.01.08","to_date_web_format":"2020.01.20"},{"rule_id":"2611996","name":"Hello2020\u5c16\u8d279\u6298\u4f18\u60e0\u5238","desc":null,"from_date":"2020-01-15","from_date_ts":1579017600,"to_date":"2020-01-17","to_date_ts":1579276799,"times_used":null,"uses_per_customer":"0","is_app":"0","coupon_id":"2826","coupon_code":"hello2020jh953","promotion_link":null,"from_date_web_format":"2020.01.15","to_date_web_format":"2020.01.17"},{"rule_id":"2611997","name":"Hello2020\u5c16\u8d279\u6298\u4f18\u60e0\u5238 ","desc":null,"from_date":"2020-01-18","from_date_ts":1579276800,"to_date":"2020-01-20","to_date_ts":1579535999,"times_used":null,"uses_per_customer":"0","is_app":"0","coupon_id":"2827","coupon_code":"hello2020jh954","promotion_link":null,"from_date_web_format":"2020.01.18","to_date_web_format":"2020.01.20"}]</td>
 				</tr>
-				<tr class='log' status='fail'>
-					<td class='status fail' title='fail' alt='fail'><i class='material-icons'>cancel</i></td>
-					<td class='timestamp'>6:12:54 PM</td>
-					<td class='step-details'><pre>java.lang.AssertionError: expected [true] but found [false]
-	at org.testng.Assert.fail(Assert.java:93)
-	at org.testng.Assert.failNotEquals(Assert.java:512)
-	at org.testng.Assert.assertTrue(Assert.java:41)
-	at org.testng.Assert.assertTrue(Assert.java:51)
-	at TestCase.test(TestCase.java:101)
-	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
-	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
-	at java.lang.reflect.Method.invoke(Method.java:498)
-	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:108)
-	at org.testng.internal.Invoker.invokeMethod(Invoker.java:661)
-	at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:869)
-	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1193)
-	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:126)
-	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:109)
-	at org.testng.TestRunner.privateRun(TestRunner.java:744)
-	at org.testng.TestRunner.run(TestRunner.java:602)
-	at org.testng.SuiteRunner.runTest(SuiteRunner.java:380)
-	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:375)
-	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:340)
-	at org.testng.SuiteRunner.run(SuiteRunner.java:289)
-	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
-	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:86)
-	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1301)
-	at org.testng.TestNG.runSuitesLocally(TestNG.java:1226)
-	at org.testng.TestNG.runSuites(TestNG.java:1144)
-	at org.testng.TestNG.run(TestNG.java:1115)
-	at org.testng.IDEARemoteTestNG.run(IDEARemoteTestNG.java:73)
-	at org.testng.RemoteTestNGStarter.main(RemoteTestNGStarter.java:123)
-</pre></td>
+				<tr class='log' status='pass'>
+					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+					<td class='timestamp'>7:42:35 PM</td>
+					<td class='step-details'>Test passed</td>
 				</tr>
 			</tbody>
 		</table>
@@ -329,151 +290,6 @@
 </div>
 <!-- test view -->
 <!-- category view -->
-<div id='exception-view' class='view hide'>
-
-    <section id='controls'>
-        <div class='controls grey lighten-4'>
-            <!-- search -->
-            <div class='chip transparent' alt='Search Tests' title='Search Tests'>
-                <a href="#" class='search-div'>
-                    <i class='material-icons'>search</i> Search
-                </a>
-
-                <div class='input-field left hide'>
-                    <input id='search-tests' type='text' class='validate browser-default' placeholder='Search Tests...'>
-                </div>
-
-            </div>
-            <!-- search -->
-        </div>
-    </section>
-
-    <div class='subview-left left'>
-
-        <div class='view-summary'>
-            <h5>Exceptions</h3>
-                <ul id='exception-collection' class='exception-collection'>
-
-                        <li class='exception displayed active'>
-                            <div class='exception-heading'>
-                                <span class='exception-name'>java.lang.NullPointerException</span>
-                                <span class='exception-count right'><span class='label red lighten-1 white-text'>1</span></span>
-                            </div>
-                            <div class='exception-content hide'>
-                                <div class='exception-tests'>
-                                    <table class='bordered table-results'>
-                                        <thead>
-                                        <tr>
-                                            <th>Timestamp</th>
-                                            <th>TestName</th>
-                                            <th>Status</th>
-                                        </tr>
-                                        </thead>
-                                        <tbody>
-                                                    <tr>
-                                                        <td>Oct 30, 2019 06:12:53 PM</td>
-                                                        <td class='linked' test-id='1'>获取设备信息</td>
-                                                        <td><pre><pre>java.lang.NullPointerException
-	at java.lang.String.replace(String.java:2240)
-	at TestCase.replaceVariableParemeters(TestCase.java:142)
-	at TestCase.test(TestCase.java:59)
-	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
-	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
-	at java.lang.reflect.Method.invoke(Method.java:498)
-	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:108)
-	at org.testng.internal.Invoker.invokeMethod(Invoker.java:661)
-	at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:869)
-	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1193)
-	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:126)
-	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:109)
-	at org.testng.TestRunner.privateRun(TestRunner.java:744)
-	at org.testng.TestRunner.run(TestRunner.java:602)
-	at org.testng.SuiteRunner.runTest(SuiteRunner.java:380)
-	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:375)
-	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:340)
-	at org.testng.SuiteRunner.run(SuiteRunner.java:289)
-	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
-	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:86)
-	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1301)
-	at org.testng.TestNG.runSuitesLocally(TestNG.java:1226)
-	at org.testng.TestNG.runSuites(TestNG.java:1144)
-	at org.testng.TestNG.run(TestNG.java:1115)
-	at org.testng.IDEARemoteTestNG.run(IDEARemoteTestNG.java:73)
-	at org.testng.RemoteTestNGStarter.main(RemoteTestNGStarter.java:123)
-</pre></pre></td>
-                                                    </tr>
-                                        </tbody>
-                                    </table>
-                                </div>
-                            </div>
-                        </li>
-                        <li class='exception displayed active'>
-                            <div class='exception-heading'>
-                                <span class='exception-name'>java.lang.AssertionError</span>
-                                <span class='exception-count right'><span class='label red lighten-1 white-text'>1</span></span>
-                            </div>
-                            <div class='exception-content hide'>
-                                <div class='exception-tests'>
-                                    <table class='bordered table-results'>
-                                        <thead>
-                                        <tr>
-                                            <th>Timestamp</th>
-                                            <th>TestName</th>
-                                            <th>Status</th>
-                                        </tr>
-                                        </thead>
-                                        <tbody>
-                                                    <tr>
-                                                        <td>Oct 30, 2019 06:12:53 PM</td>
-                                                        <td class='linked' test-id='2'>null</td>
-                                                        <td><pre><pre>java.lang.AssertionError: expected [true] but found [false]
-	at org.testng.Assert.fail(Assert.java:93)
-	at org.testng.Assert.failNotEquals(Assert.java:512)
-	at org.testng.Assert.assertTrue(Assert.java:41)
-	at org.testng.Assert.assertTrue(Assert.java:51)
-	at TestCase.test(TestCase.java:101)
-	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
-	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
-	at java.lang.reflect.Method.invoke(Method.java:498)
-	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:108)
-	at org.testng.internal.Invoker.invokeMethod(Invoker.java:661)
-	at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:869)
-	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1193)
-	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:126)
-	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:109)
-	at org.testng.TestRunner.privateRun(TestRunner.java:744)
-	at org.testng.TestRunner.run(TestRunner.java:602)
-	at org.testng.SuiteRunner.runTest(SuiteRunner.java:380)
-	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:375)
-	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:340)
-	at org.testng.SuiteRunner.run(SuiteRunner.java:289)
-	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
-	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:86)
-	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1301)
-	at org.testng.TestNG.runSuitesLocally(TestNG.java:1226)
-	at org.testng.TestNG.runSuites(TestNG.java:1144)
-	at org.testng.TestNG.run(TestNG.java:1115)
-	at org.testng.IDEARemoteTestNG.run(IDEARemoteTestNG.java:73)
-	at org.testng.RemoteTestNGStarter.main(RemoteTestNGStarter.java:123)
-</pre></pre></td>
-                                                    </tr>
-                                        </tbody>
-                                    </table>
-                                </div>
-                            </div>
-                        </li>
-                </ul>
-        </div>
-    </div>
-
-    <div class='subview-right left'>
-        <div class='view-summary'>
-            <h5 class='exception-name'></h5>
-        </div>
-    </div>
-</div>
 <!-- exception view -->
 <div id='dashboard-view' class='view hide'>
 	<div class='card-panel transparent np-v'>
@@ -495,19 +311,19 @@
 			<div class='col s2'>
 				<div class='card-panel r'>
 					Start
-					<div class='panel-lead'>Oct 30, 2019 06:12:53 PM</div>
+					<div class='panel-lead'>Jan 16, 2020 07:42:33 PM</div>
 				</div>
 			</div>
 			<div class='col s2'>
 				<div class='card-panel r'>
 			 		End
-			 		<div class='panel-lead'>Oct 30, 2019 06:12:54 PM</div>
+			 		<div class='panel-lead'>Jan 16, 2020 07:42:35 PM</div>
 				</div>
 			</div>
 			<div class='col s2'>
 				<div class='card-panel r'>
 					Time Taken
-					<div class='panel-lead'>988ms</div>
+					<div class='panel-lead'>0h 0m 1s+694ms</div>
 				</div>
 			</div>
 		</div>
@@ -520,22 +336,22 @@
 
 		<script>
 			var statusGroup = {
-				passParent: 0,
-				failParent: 2,
+				passParent: 2,
+				failParent: 0,
 				fatalParent: 0,
 				errorParent: 0,
 				warningParent: 0,
 				skipParent: 0,
-				exceptionsParent: 2,
+				exceptionsParent: 0,
 				
-				passChild: 0,
-				failChild: 2,
+				passChild: 2,
+				failChild: 0,
 				fatalChild: 0,
 				errorChild: 0,
 				warningChild: 0,
 				skipChild: 0,
 				infoChild: 0,
-				exceptionsChild: 6,
+				exceptionsChild: 8,
 				
 				passGrandChild: 0,
 				failGrandChild: 0,
